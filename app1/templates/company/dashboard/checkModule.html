@@ -1,0 +1,32 @@
+{% extends 'company/dashboard/base.html' %}
+{% load static %}
+{% block NewContent %}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> ML Module</h4>
+            <p class="card-description"> Details </p>
+            <form class="forms-sample" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" disabled name="name" value={{users.company_name}} class="form-control" id="exampleInputName1" placeholder="Product Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Email address</label>
+                <input type="email" disabled class="form-control" value={{users.company_email}} name="em1" id="exampleInputEmail3" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label>File upload</label><br>
+                <input type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name="img1">
+              </div>
+              <button type="submit" class="btn btn-success mr-2">Submit</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock NewContent %}

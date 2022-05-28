@@ -1,0 +1,49 @@
+{% extends 'company/dashboard/base.html' %}
+{% load static %}
+{% block NewContent %}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> Upadate Profile Details</h4>
+            <p class="card-description">Manage Profile </p>
+            <form class="forms-sample" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputName1">Name</label>
+                <input type="text" class="form-control" name="nm1" id="exampleInputName1" value="{{ users.company_name }}" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" name="em1" id="exampleInputEmail3" value="{{ users.company_email }}" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword4">Password</label>
+                <input type="text" class="form-control" name="pass1" id="exampleInputPassword4" value="{{ users.company_pass }}" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label>File upload</label><br>
+                {% if users.profile %}
+                    <img src="{{ users.profile.url }}" width="200px">
+                {% endif %}<br>
+                <input type="file" name="img1">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputCity1">Contact No</label>
+                <input type="text" class="form-control" id="exampleInputCity1" name="con1" value="{{ users.company_cno }}" placeholder="Contact No">
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea1">Address</label>
+                <textarea class="form-control" id="exampleTextarea1" name="add1" rows="2">
+                   {{ users.company_add }}
+                </textarea>
+              </div>
+              <button type="submit" class="btn btn-success mr-2">Submit</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock NewContent %}

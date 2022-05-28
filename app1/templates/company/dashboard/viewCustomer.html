@@ -1,0 +1,38 @@
+{% extends 'company/dashboard/base.html' %}
+{% load static %}
+{% block NewContent %}
+
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">View Customer</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
+            <th>Customer Phone No</th>
+            <th>Customer Joining Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            {% for i in cust reversed  %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ i.cust_name }}</td>
+              <td>{{ i.cust_email }}</td>
+              <td>{{ i.cust_con }}</td>
+              <td>{{ i.regi_date }}</td>
+              <td>
+                <a href="{% url 'DeleteCustomer' i.id %}" class="badge badge-danger">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock NewContent %}

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign In Form by DAN</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'company/login/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'company/login/css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+       
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-form">
+                        <h2 class="form-title">For New Password</h2>
+                        <form method="POST" class="register-form" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="pass1" id="pass1" placeholder="Enter New Passsword"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="pass2" id="pass2" placeholder="Renter New Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="cjeck" id="check" class="form-submit" value="Check"/>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'company/login/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'company/login/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

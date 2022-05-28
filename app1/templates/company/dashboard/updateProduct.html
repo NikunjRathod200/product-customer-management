@@ -1,0 +1,39 @@
+{% extends 'company/dashboard/base.html' %}
+{% load static %}
+{% block NewContent %}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Update Product Details</h4>
+        <p class="card-description"> Product Details </p>
+        <form class="forms-sample" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputName1">Name</label>
+            <input type="text" name="name" value="{{ Prod.pro_name }}" class="form-control" id="exampleInputName1" placeholder="Product Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Price</label>
+            <input type="number" name="price" value="{{ Prod.pro_price }}" class="form-control" id="exampleInputEmail3" placeholder="Product Price">
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleInputCity1">QTY</label>
+            <input type="number" name="qty" value="{{ Prod.pro_qty }}" class="form-control" id="exampleInputCity1" placeholder="Product Quantity">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputCity1">Image</label>
+            {% if Prod.pro_img %}
+              <img src="{{ Prod.pro_img.url }}" width="200px">
+            {% endif %}
+            <input type="file" name="img" class="form-control" id="exampleInputCity1">
+          </div>
+         
+          <button type="submit" class="btn btn-success mr-2">Submit</button>
+          <button class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock NewContent %}
